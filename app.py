@@ -134,8 +134,8 @@ def main():
         print(query)
         st.write("Generating the best articles for: ", query)
 
-        search_resluts = search(query + " articles")
-        urls = find_best_article_urls(search_resluts, query + " articles")
+        search_resluts = search(query + " articles or news")
+        urls = find_best_article_urls(search_resluts, query)
         data = get_content_from_urls(urls)
         summaries = summarise(data, query)
         thread = generate_thread(summaries, query)
