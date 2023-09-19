@@ -21,7 +21,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # 1.serp request to get list of relevant articles
 def search(query):
-    url = "https://google.serper.dev/search"
+    url = "https://google.serper.dev/scholar"
 
     payload = json.dumps({"q": query})
     headers = {"X-API-KEY": SERPAPI_API_KEY,
@@ -134,7 +134,7 @@ def main():
         print(query)
         st.write("Generating the best articles for: ", query)
 
-        search_resluts = search(query + " articles or news")
+        search_resluts = search(query + " articles")
         urls = find_best_article_urls(search_resluts, query)
         data = get_content_from_urls(urls)
         summaries = summarise(data, query)
