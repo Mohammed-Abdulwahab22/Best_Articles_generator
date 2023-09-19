@@ -134,7 +134,7 @@ def main():
         print(query)
         st.write("Generating the best articles for: ", query)
 
-        search_resluts = search(query + " articles")
+        search_resluts = search(query)
         urls = find_best_article_urls(search_resluts, query)
         data = get_content_from_urls(urls)
         summaries = summarise(data, query)
